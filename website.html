@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebel Soul Duo</title>
+    <style>
+        /* Base Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: normal;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('./images/IMG_1005 (cropped, v4).JPG') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 10%;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text p {
+            font-size: 0.9rem;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        /* Photos Section */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .photos-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            min-height: 200px;
+        }
+
+        /* Audio Section */
+        .audio-section {
+            background-color: #111;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #222;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Gig Schedule Section */
+        .gig-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gig-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 30px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .gig-date {
+            flex: 0 0 15%;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .gig-details {
+            flex: 0 0 50%;
+        }
+
+        .gig-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .gig-details p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .gig-time {
+            flex: 0 0 35%;
+            text-align: right;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Contact & Footer Section */
+        .contact-section {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .contact-info {
+            margin: 40px 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gig-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .gig-time {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="logo">Rebel Soul Duo</div>
+        <div class="hero-content">
+            <h1>Unleash the Sound<br>of Rebel Soul</h1>
+            <p>Experience the energy and passion of live music.</p>
+            <a href="#gigs" class="btn">Book Now</a>
+        </div>
+    </header>
+
+    <section class="container" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="./images/IMG_1012 (Michele edit).JPEG" alt="Rebel Soul Duo Members">
+            </div>
+            <div class="about-text">
+                <p> <p style="font-size: 16px;"> Rebel Soul is the dynamic duo of <b>Michele Araquette</b> and <b>Larry Younkins</b>, two seasoned musicians who bring decades of experience, passion, and versatility to every performance. With a setlist that spans <b>rock, blues, jazz, and everything in between</b>, they deliver an unforgettable mix of powerhouse vocals and masterful guitar work, always with a touch of humor and heart.
+
+Michele has been captivating audiences for over 30 years, fronting some of the area's most notable bands, including <b>Crush, Gazze, and The Klassix</b>. A mezzo-soprano with a three-octave range, Michele effortlessly covers artists like <b>Heart, Pink, Pat Benatar, Susan Tedeschi, Bonnie Raitt, Eva Cassidy, and Ella Fitzgerald</b>. Known for her engaging stage presence and self-deprecating humor, Michele makes every show feel like a personal experience.
+
+Larry is a highly respected guitarist who performs with several area bands, including a <b>Foreigner tribute band</b> and <b>Red Sky Dawn</b>. His exceptional musicianship, versatility, and deep love for rock and blues shine through in every note he plays. Whether delivering soaring solos or intricate acoustic melodies, Larry’s playing is the perfect complement to Michele’s powerhouse vocals.
+
+Together, Rebel Soul brings an electric energy to the stage, blending timeless classics with fresh, soulful interpretations. Whether in an intimate setting or rocking a full venue, they create a musical experience that’s authentic, captivating, and just plain fun.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="photos">
+        <h2 class="section-title">Photos</h2>
+        <div class="photos-grid">
+            <img src="./images/fulllogo-9ad0209.jpg" alt="Live performance 1" style="width: 320px;  height: 256px;">
+            <img src="./images/SInging hand.jpeg" alt="Live performance 2">
+            <img src="./images/FullSizeRender_5.jpg" alt="Live performance 3">
+            <img src="./images/Singing U talkin to me.jpeg" alt="Live performance 4">
+            <img src="./images/FullSizeRender_4.jpg" alt="Live performance 5">
+            <img src="./images/Singing 1.jpeg" alt="Live performance 6">
+        </div>
+    </section>
+
+    <section class="audio-section">
+        <div class="container" id="audio">
+            <h2 class="section-title">Audio</h2>
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2051221836&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/zepprocks57" title="Zepprocks57" target="_blank" style="color: #cccccc; text-decoration: none;">Zepprocks57</a> · <a href="https://soundcloud.com/zepprocks57/dreams-rebel-soul-duo" title="Dreams (Rebel Soul Duo)" target="_blank" style="color: #cccccc; text-decoration: none;">Dreams (Rebel Soul Duo)</a></div>
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2051223208&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/zepprocks57" title="Zepprocks57" target="_blank" style="color: #cccccc; text-decoration: none;">Zepprocks57</a> · <a href="https://soundcloud.com/zepprocks57/brass-in-pocket-rebel-soul-duo" title="Brass in Pocket (Rebel Soul Duo)" target="_blank" style="color: #cccccc; text-decoration: none;">Brass in Pocket (Rebel Soul Duo)</a></div>
+       </div>
+    </section>
+
+    <section class="container" id="video">
+        <h2 class="section-title">Video</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FhSQ3b0mCzc?si=QnJfrGJLdDJs30bS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="container" id="gigs">
+        <h2 class="section-title">Gig Schedule</h2>
+        <div class="gig-list">
+            
+            <div class="gig-item">
+                <div class="gig-date">4/10/26</div>
+                <div class="gig-details">
+                    <h3>Carson's Creekside</h3>
+                    <p> <i>A hidden gem Waterfront Restaurant</i> with an inviting family atmosphere directly on Dark Head Creek with some of nature's greatest sunset scenes.</p>
+                </div>
+                <div class="gig-time">
+                   7:00 PM - 11:00 PM<br>
+                   1110 Beech Dr, Middle River, MD 21220
+                </div>
+            </div>
+
+            <div class="gig-item">
+                <div class="gig-date">7/11/26</div>
+                <div class="gig-details">
+                    <h3>Carson's Creekside</h3>
+                    <p>A hidden gem Waterfront Restaurant with an inviting family atmosphere directly on Dark Head Creek with some of nature's greatest sunset scenes.</p>
+                </div>
+                <div class="gig-time">
+                    7:00 PM - 11:00 PM<br>
+                    1110 Beech Dr, Middle River, MD 21220
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div class="contact-info">
+            <p>For booking inquiries, please reach out to us directly:</p>
+            <br>
+            <p>Email: booking@rebelsoulduo.com</p>
+            <p>Phone: (443) 691-0935</p>
+        </div>
+
+        <div class="social-links">
+            <h3>Social</h3>
+            <a href="#" aria-label="YouTube">YouTube</a>
+            <a href="https://www.youtube.com/@RebelSoulDuo" target="_blank"></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rebel Soul Duo. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
